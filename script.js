@@ -1,3 +1,4 @@
+// product list
 const products = [
   {
     name: "Basmati Rice",
@@ -123,23 +124,57 @@ const products = [
 ];
 
 const productContainer = document.querySelector(".products-container");
+const searchBox = document.querySelector("#search-box");
+const searchBtn = document.querySelector("#search");
 
-products.forEach((item) => {
+// function to display products
+const displayProducts = (item) => {
   const productCard = document.createElement("div");
   productCard.classList.add("product-card");
   productCard.innerHTML = ` 
-          <div class="image-container flex">
-            <img
-              src=${item.image}
-              alt=${item.name}
-            />
-          </div>
-          <h3>${item.name}</h3>
-          <span>${item.category}</span>
-          <p>
-        ${item.description}
-          </p>
-          <p><b>AUD ${item.price}</b></p>
-          `;
+            <div class="image-container flex">
+              <img
+                src=${item.image}
+                alt=${item.name}
+              />
+            </div>
+            <h3>${item.name}</h3>
+            <span>${item.category}</span>
+            <p>
+          ${item.description}
+            </p>
+            <p><b>AUD ${item.price}</b></p>
+            `;
   productContainer.appendChild(productCard);
-});
+};
+
+// load products for displaying
+const loadProducts = (products) => {
+  productContainer.innerHTML = "";
+  if (products != "") {
+    products.forEach((item) => {
+      displayProducts(item);
+    });
+  } else {
+    productContainer.innerHTML =
+      "Sorry no products found. We are working hard to restock items.";
+  }
+};
+
+loadProducts(products);
+
+// search functionality
+searchBtn.onclick = () => {
+  if (searchBox.value.trim() != "") {
+    const query = searchBox.value.trim().toLowerCase();
+    const filteredArray = products.filter((item) => {
+      return (
+        item.name.toLowerCase().includes(query) ||
+        item.price.toString().includes(query) ||
+        item.category.toLowerCase().includes(query)
+      );
+    });
+
+    loadProducts(filteredArray);
+  }
+};
