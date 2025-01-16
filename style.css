@@ -24,6 +24,13 @@ a {
   background-color: wheat;
 }
 
+h3 a {
+  letter-spacing: 0.3rem;
+  box-shadow: 0 0 5px 5px white;
+  padding: 1rem;
+  border-radius: 80% 80% 0 0;
+}
+
 #search-box {
   padding: 0.6rem 1rem;
   margin-right: 1rem;
@@ -43,6 +50,7 @@ button:hover {
 /* main section */
 .main-container {
   padding: 1rem;
+  min-height: 82dvh;
 }
 
 .main-container h2 {

@@ -171,6 +171,7 @@ const goHomeBtn = document.querySelector("#go-home-btn");
 const displayProducts = (item) => {
   const productCard = document.createElement("div");
   productCard.classList.add("product-card");
+
   productCard.innerHTML = ` 
             <div class="image-container flex">
               <img
