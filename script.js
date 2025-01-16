@@ -126,6 +126,7 @@ const products = [
 const productContainer = document.querySelector(".products-container");
 const searchBox = document.querySelector("#search-box");
 const searchBtn = document.querySelector("#search");
+const goHomeBtn = document.querySelector("#go-home-btn");
 
 // function to display products
 const displayProducts = (item) => {
@@ -152,12 +153,14 @@ const displayProducts = (item) => {
 const loadProducts = (products) => {
   productContainer.innerHTML = "";
   if (products != "") {
+    goHomeBtn.innerHTML = `<a href="#body">Go to Top</a>`;
     products.forEach((item) => {
       displayProducts(item);
     });
   } else {
     productContainer.innerHTML =
       "Sorry no products found. We are working hard to restock items.";
+    goHomeBtn.innerText = "See Other Products";
   }
 };
 
@@ -177,4 +180,9 @@ searchBtn.onclick = () => {
 
     loadProducts(filteredArray);
   }
+};
+
+// goHome button
+goHomeBtn.onclick = () => {
+  loadProducts(products);
 };
