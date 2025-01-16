@@ -1,0 +1,64 @@
+* {
+  margin: 0;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* header section */
+
+.header {
+  justify-content: space-between;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  background-color: wheat;
+}
+
+#search-box {
+  padding: 0.6rem 1rem;
+  margin-right: 1rem;
+}
+
+#search {
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+#search:hover {
+  background-color: rgb(240, 209, 151);
+}
+
+/* main section */
+.main-container {
+  padding: 1rem;
+}
+
+/* products section */
+
+.product-card {
+  background-color: wheat;
+  width: 20rem;
+  height: 20rem;
+  padding: 2rem 1rem;
+  line-height: 2rem;
+}
+
+img {
+  height: 10rem;
+  width: 10rem;
+  border-radius: 50%;
+}
+
+span {
+  background-color: white;
+  border-radius: 20px;
+  padding: 0.2rem;
+}
